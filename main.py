@@ -1,18 +1,7 @@
-import kivy
-
-kivy.require('1.9.0')
-
 from kivy.app import App
-from kivy.uix.floatlayout import FloatLayout
+from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
-from kivy.config import Config
 
-Config.set('graphics', 'width', '480')
-Config.set('graphics', 'height', '800')
-# werpt is a giraffwe lmao u foshfghvc
-#asdiof
-# A Float layout positions and sizes objects as a percentage
-# of the window size
 class HomePage(Screen):
     pass
 
@@ -22,10 +11,10 @@ class MedicationPage(Screen):
 class ScreenManagement(ScreenManager):
     pass
 
-class FloatingApp(App):
+presentation = Builder.load_file("main2.kv")
+
+class MainApp(App):
     def build(self):
-        return FloatLayout()
+        return presentation
 
-flApp = FloatingApp()
-
-flApp.run()
+MainApp().run()

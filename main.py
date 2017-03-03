@@ -5,7 +5,19 @@ from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 class HomePage(Screen):
     pass
 
+class DietPage(Screen):
+    pass
+
+class ExercisePage(Screen):
+    pass
+
 class MedicationPage(Screen):
+    pass
+
+class GoalsPage(Screen):
+    pass
+
+class LifePage(Screen):
     pass
 
 class ScreenManagement(ScreenManager):

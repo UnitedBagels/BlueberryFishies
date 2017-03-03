@@ -6,7 +6,7 @@ from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 
 # werpt is a giraffwe lmao u foshfghvc
-
+#asdiof
 # A Float layout positions and sizes objects as a percentage
 # of the window size
 

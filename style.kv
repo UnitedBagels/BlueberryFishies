@@ -3,7 +3,11 @@
 ScreenManagement:
     transition: SlideTransition(direction='down')
     HomePage:
+    DietPage:
+    ExercisePage:
     MedicationPage:
+    GoalsPage:
+    LifePage:
 
 <CustButton@Button>:
     font_size: 32
@@ -52,28 +56,54 @@ ScreenManagement:
     FloatLayout:
         CustButton:
             text: "Low Sodium"
-            pos_hint: {"center_x": .5, "top": .9}
+            pos_hint: {"center_x": .5, "center_y": .7}
         CustButton:
-            text: "Exercise"
+            text: "Low Fat"
             pos_hint: {"center_x": .5, "center_y": .5}
         CustButton:
-            text: "Medication"
-            pos_hint: {"center_x": .5, "y": .1}
-            on_release:
-                app.root.current = "meds"
-                app.root.transition = SlideTransition(direction='up')
+            text: "Diabetic"
+            pos_hint: {"center_x": .5, "center_y": .3}
 
 <ExercisePage>:
+    name: "exer"
+    FloatLayout:
+        CustButton:
+            text: "Step Tracker"
+            pos_hint: {"center_x": .5, "center_y": .6}
+        CustButton:
+            text: "Burn Calories"
+            pos_hint: {"center_x": .5, "center_y": .3}
 
 <MedicationPage>:
     name: "meds"
-    CustButton:
-        text: "Temp Button"
-        pos_hint: {"center_x": .5, "center_y": .5}
-        on_release:
-            app.root.current = "home"
-            app.root.transition = SlideTransition(direction='down')
+    FloatLayout:
+        CustButton:
+            text: "Temp Button"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release:
+                app.root.current = "home"
+                app.root.transition = SlideTransition(direction='down')
 
 <GoalsPage>:
+    name: "goals"
+    CustButton:
+        text: "Blood Pressure Goals"
+        pos_hint: {"center_x": .5, "center_y":.3}
+    CustButton:
+        text: "Cholesterol Goals"
+        pos_hint: {"center_x": .5, "center_y":.5}
+    CustButton:
+        text: "Cholesterol Goals"
+        pos_hint: {"center_x": .5, "center_y":.7}
 
 <LifePage>:
+    name: "life"
+    CustButton:
+        text: "Stress Management"
+        pos_hint: {"center_x": .5, "center_y":.3}
+    CustButton:
+        text: "Stop Smoking"
+        pos_hint: {"center_x": .5, "center_y":.5}
+    CustButton:
+        text: "Weight Loss"
+        pos_hint: {"center_x": .5, "center_y":.7}

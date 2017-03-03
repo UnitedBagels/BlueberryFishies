@@ -1,3 +1,10 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<ScreenManagement>:
+    transition: FadeTransition()
+    HomePage:
+    MedicationPage:
+
 <CustButton@Button>:
     font_size: 32
     color: 0, 0, 0, 1
@@ -6,13 +13,23 @@
     background_color: .88, .88, .88, 1
     size_hint: .5, .2
 
-<FloatLayout>:
+<HomePage>:
+    name: "home"
+    FloatLayout:
+        CustButton:
+            text: "Diets"
+            pos_hint: {"center_x": .5, "top": .9}
+        CustButton:
+            text: "Exercise"
+            pos_hint: {"center_x": .5, "center_y": .5}
+        CustButton:
+            text: "Medication"
+            pos_hint: {"center_x": .5, "y": .1}
+            on_release: app.root.current = "meds"
+
+<MedicationPage>:
+    name: "meds"
     CustButton:
-        text: "Diets"
-        pos_hint: {"center_x": .5, "top": .9}
-    CustButton:
-        text: "Exercise"
+        text: "Temp Button"
         pos_hint: {"center_x": .5, "center_y": .5}
-    CustButton:
-        text: "Medication"
-        pos_hint: {"center_x": .5, "y": .1}
+        on_release: app.root.current = "home"

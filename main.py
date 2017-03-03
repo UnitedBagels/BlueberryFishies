@@ -1,6 +1,9 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
+from kivy.config import Config
+Config.set('graphics', 'width', '480')
+Config.set('graphics', 'height', '800')
 
 class HomePage(Screen):
     pass

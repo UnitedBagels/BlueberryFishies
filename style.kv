@@ -11,13 +11,47 @@ ScreenManagement:
     background_normal: ''
     background_down: 'button_background.png'
     background_color: .88, .88, .88, 1
-    size_hint: .5, .2
+    size_hint: .6, .15
 
 <HomePage>:
     name: "home"
     FloatLayout:
         CustButton:
             text: "Diets"
+            pos_hint: {"center_x": .5, "center_y": .9}
+            on_release:
+                app.root.current = "diet"
+                app.root.transition = SlideTransition(direction='up')
+        CustButton:
+            text: "Exercise"
+            pos_hint: {"center_x": .5, "center_y": .7}
+            on_release:
+                app.root.current = "exer"
+                app.root.transition = SlideTransition(direction='up')
+        CustButton:
+            text: "Medication"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release:
+                app.root.current = "meds"
+                app.root.transition = SlideTransition(direction='up')
+        CustButton:
+            text: "Health Goals"
+            pos_hint: {"center_x": .5, "center_y": .3}
+            on_release:
+                app.root.current = "goals"
+                app.root.transition = SlideTransition(direction='up')
+        CustButton:
+            text: "Lifestyle"
+            pos_hint: {"center_x": .5, "center_y": .1}
+            on_release:
+                app.root.current = "life"
+                app.root.transition = SlideTransition(direction='up')
+
+<DietPage>:
+    name: "diet"
+    FloatLayout:
+        CustButton:
+            text: "Low Sodium"
             pos_hint: {"center_x": .5, "top": .9}
         CustButton:
             text: "Exercise"
@@ -28,8 +62,6 @@ ScreenManagement:
             on_release:
                 app.root.current = "meds"
                 app.root.transition = SlideTransition(direction='up')
-
-<DietPage>:
 
 <ExercisePage>:
 

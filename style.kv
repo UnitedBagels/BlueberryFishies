@@ -1,7 +1,7 @@
-#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
 
 ScreenManagement:
-    transition: FadeTransition()
+    transition: SlideTransition(direction='down')
     HomePage:
     MedicationPage:
 
@@ -25,11 +25,15 @@ ScreenManagement:
         CustButton:
             text: "Medication"
             pos_hint: {"center_x": .5, "y": .1}
-            on_release: app.root.current = "meds"
+            on_release:
+                app.root.current = "meds"
+                app.root.transition = SlideTransition(direction='up')
 
 <MedicationPage>:
     name: "meds"
     CustButton:
         text: "Temp Button"
         pos_hint: {"center_x": .5, "center_y": .5}
-        on_release: app.root.current = "home"
+        on_release:
+            app.root.current = "home"
+            app.root.transition = SlideTransition(direction='down')

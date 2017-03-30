@@ -2,10 +2,14 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.config import Config
+from kivy.core.window import Window
 Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '800')
+#dan@finisventures.com
+
 
 class HomePage(Screen):
+    Window.clearcolor = (1, 1, 1, 1)
     pass
 
 class DietPage(Screen):

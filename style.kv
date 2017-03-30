@@ -14,7 +14,7 @@ ScreenManagement:
     color: 0, 0, 0, 1
     background_normal: ''
     background_down: 'button_background.png'
-    background_color: .88, .88, .88, 1
+    background_color: .4, .4, 1, 1
     size_hint: .6, .15
 
 <HomePage>:
@@ -63,6 +63,13 @@ ScreenManagement:
         CustButton:
             text: "Diabetic"
             pos_hint: {"center_x": .5, "center_y": .3}
+        CustButton:
+            text: "Back"
+            size_hint: .3,.1
+            pos_hint: {"x": 0,"y": 0}
+            on_release:
+                app.root.current = "home"
+                app.root.transition = SlideTransition(direction='down')
 
 <ExercisePage>:
     name: "exer"
@@ -73,13 +80,29 @@ ScreenManagement:
         CustButton:
             text: "Burn Calories"
             pos_hint: {"center_x": .5, "center_y": .3}
+        CustButton:
+            text: "Back"
+            size_hint: .3,.1
+            pos_hint: {"x": 0,"y": 0}
+            on_release:
+                app.root.current = "home"
+                app.root.transition = SlideTransition(direction='down')
 
 <MedicationPage>:
     name: "meds"
     FloatLayout:
         CustButton:
-            text: "Temp Button"
-            pos_hint: {"center_x": .5, "center_y": .5}
+            text: "Set Reminders"
+            font_size: 28
+            pos_hint: {"center_x": .5, "center_y":.3}
+        CustButton:
+            text: "General Information"
+            font_size: 28
+            pos_hint: {"center_x": .5, "center_y":.6}
+        CustButton:
+            text: "Back"
+            size_hint: .3,.1
+            pos_hint: {"x": 0,"y": 0}
             on_release:
                 app.root.current = "home"
                 app.root.transition = SlideTransition(direction='down')
@@ -88,13 +111,23 @@ ScreenManagement:
     name: "goals"
     CustButton:
         text: "Blood Pressure Goals"
+        font_size: 28
         pos_hint: {"center_x": .5, "center_y":.3}
     CustButton:
         text: "Cholesterol Goals"
+        font_size: 28
         pos_hint: {"center_x": .5, "center_y":.5}
     CustButton:
         text: "Cholesterol Goals"
+        font_size: 28
         pos_hint: {"center_x": .5, "center_y":.7}
+        CustButton:
+            text: "Back"
+            size_hint: .3,.1
+            pos_hint: {"x": 0,"y": 0}
+            on_release:
+                app.root.current = "home"
+                app.root.transition = SlideTransition(direction='down')
 
 <LifePage>:
     name: "life"
@@ -107,3 +140,10 @@ ScreenManagement:
     CustButton:
         text: "Weight Loss"
         pos_hint: {"center_x": .5, "center_y":.7}
+    CustButton:
+        text: "Back"
+        size_hint: .3,.1
+        pos_hint: {"x": 0,"y": 0}
+        on_release:
+            app.root.current = "home"
+            app.root.transition = SlideTransition(direction='down')

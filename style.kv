@@ -11,18 +11,22 @@ ScreenManagement:
 
 <CustButton@Button>:
     font_size: 32
+    font_name: 'images/cambriab'
     color: 0, 0, 0, 1
     background_normal: ''
     background_down: 'button_background.png'
-    background_color: .4, .4, 1, 1
+    background_color: .502, .651, .671, 1
     size_hint: .6, .15
 
 <HomePage>:
     name: "home"
     FloatLayout:
         CustButton:
-            text: "Diets"
+            text: "Diet"
             pos_hint: {"center_x": .5, "center_y": .9}
+            #Image:
+            #    source: 'bagel.png'
+            #    pos_hint: {"y": 200, "x": 200}
             on_release:
                 app.root.current = "diet"
                 app.root.transition = SlideTransition(direction='up')

@@ -4,8 +4,9 @@ from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.config import Config
 from kivy.core.window import Window
 import webbrowser
-Config.set('graphics', 'width', '480')
-Config.set('graphics', 'height', '800')
+"""Config.set('graphics', 'width', '480')
+Config.set('graphics', 'height', '800')"""
+Window.size = (480, 800)
 #dan@finisventures.com
 
 

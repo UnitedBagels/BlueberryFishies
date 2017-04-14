@@ -22,6 +22,7 @@ class ExercisePage(Screen):
 class MedicationPage(Screen):
     pass
 
+
 class GoalsPage(Screen):
     pass
 
@@ -29,6 +30,9 @@ class LifePage(Screen):
     pass
 
 class SettingsPage(Screen):
+    pass
+
+class PhysicalActivities(Screen):
     pass
 
 class ScreenManagement(ScreenManager):
@@ -42,6 +46,8 @@ class ScreenManagement(ScreenManager):
         pass
     def MedicineGuide(self):
         webbrowser.open_new("https://www.fda.gov/Drugs/DrugSafety/ucm085729.htm")
+    def PhysicalActivity(self):
+        webbrowser.open_new("https://www.niddk.nih.gov/health-information/health-topics/weight-control/young-heart-tips-Older-adults/Pages/young-heart-tips-older-adults.aspx#physical_activity")
 
 
 presentation = Builder.load_file("style.kv")

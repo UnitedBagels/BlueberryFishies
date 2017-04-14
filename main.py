@@ -38,6 +38,11 @@ class ScreenManagement(ScreenManager):
         webbrowser.open_new("http://allrecipes.com/recipes/1231/healthy-recipes/low-fat/")
     def DiabeticBrowser(self):
         webbrowser.open_new("http://allrecipes.com/recipes/739/healthy-recipes/diabetic/")
+    def notify():
+        pass
+    def MedicineGuide(self):
+        webbrowser.open_new("https://www.fda.gov/Drugs/DrugSafety/ucm085729.htm")
+
 
 presentation = Builder.load_file("style.kv")
 

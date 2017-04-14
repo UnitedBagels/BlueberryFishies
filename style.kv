@@ -109,6 +109,8 @@ ScreenManagement:
             text: "General Information"
             font_size: 28
             pos_hint: {"center_x": .5, "center_y":.6}
+            on_release:
+                app.root.MedicineGuide()
         CustButton:
             text: "Back"
             size_hint: .3,.1

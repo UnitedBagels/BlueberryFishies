@@ -8,6 +8,7 @@ ScreenManagement:
     MedicationPage:
     GoalsPage:
     LifePage:
+    SettingsPage:
 
 <CustButton@Button>:
     font_size: 32
@@ -53,6 +54,13 @@ ScreenManagement:
             pos_hint: {"center_x": .5, "center_y": .1}
             on_release:
                 app.root.current = "life"
+                app.root.transition = SlideTransition(direction='up')
+        CustButton:
+            text: "S"
+            pos_hint: {"right": 1, "center_y": 0.05}
+            size_hint: .1, .1
+            on_release:
+                app.root.current = "settings"
                 app.root.transition = SlideTransition(direction='up')
 
 <DietPage>:
@@ -157,3 +165,18 @@ ScreenManagement:
         on_release:
             app.root.current = "home"
             app.root.transition = SlideTransition(direction='down')
+
+<SettingsPage>:
+    name: "settings"
+    CustButton:
+        text: "Temp Button"
+        pos_hint: {"center_x": .5, "center_y":.3}
+        pos_hint: {"x": 0,"y": 0}
+    CustButton:
+        text: "Back"
+        size_hint: .3,.1
+        pos_hint: {"x": 0,"y": 0}
+        on_release:
+            app.root.current = "home"
+            app.root.transition = SlideTransition(direction='down')
+

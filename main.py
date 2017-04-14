@@ -9,9 +9,6 @@ Config.set('graphics', 'height', '800')"""
 Window.size = (480, 800)
 #dan@finisventures.com
 
-
-
-
 class HomePage(Screen):
     Window.clearcolor = (1, 1, 1, 1)
     pass
@@ -29,6 +26,9 @@ class GoalsPage(Screen):
     pass
 
 class LifePage(Screen):
+    pass
+
+class SettingsPage(Screen):
     pass
 
 class ScreenManagement(ScreenManager):

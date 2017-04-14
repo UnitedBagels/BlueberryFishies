@@ -9,6 +9,7 @@ ScreenManagement:
     GoalsPage:
     LifePage:
     SettingsPage:
+    PhysicalActivities:
 
 <CustButton@Button>:
     font_size: 32 ##
@@ -107,6 +108,8 @@ ScreenManagement:
         CustButton:
             text: "Burn Calories"
             pos_hint: {"center_x": .5, "center_y": .3}
+            on_release:
+                app.root.current = "phys"
         CustButton:
             text: "Back"
             size_hint: .3,.1
@@ -199,3 +202,11 @@ ScreenManagement:
             app.root.current = "home"
             app.root.transition = SlideTransition(direction='down')
 
+<PhysicalActivities>:
+    name: "phys"
+    CustButton:
+        #font_size: 20
+        text: "General Exercise \n      Information"
+        pos_hint: {"center_x": .5, "center_y": .3}
+        on_release:
+            app.root.PhysicalActivity()

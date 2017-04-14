@@ -32,6 +32,7 @@ class SettingsPage(Screen):
     pass
 
 class ScreenManagement(ScreenManager):
+    yPos = 0.825
     def SodiumDietBrowser(self):
         webbrowser.open_new("http://allrecipes.com/recipes/1788/healthy-recipes/low-sodium/")
     def FatDietBrowser(self):

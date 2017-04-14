@@ -8,6 +8,7 @@ import webbrowser
 Config.set('graphics', 'height', '800')"""
 Window.size = (480, 800)
 #dan@finisventures.com
+#
 
 class HomePage(Screen):
     Window.clearcolor = (1, 1, 1, 1)

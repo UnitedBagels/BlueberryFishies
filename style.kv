@@ -8,21 +8,27 @@ ScreenManagement:
     MedicationPage:
     GoalsPage:
     LifePage:
+    SettingsPage:
+    PhysicalActivities:
 
 <CustButton@Button>:
     font_size: 32
+    font_name: 'images/cambriab'
     color: 0, 0, 0, 1
     background_normal: ''
     background_down: 'button_background.png'
-    background_color: .4, .4, 1, 1
+    background_color: .502, .651, .671, 1
     size_hint: .6, .15
 
 <HomePage>:
     name: "home"
     FloatLayout:
         CustButton:
-            text: "Diets"
+            text: "Diet"
             pos_hint: {"center_x": .5, "center_y": .9}
+            #Image:
+            #    source: 'bagel.png'
+            #    pos_hint: {"y": 200, "x": 200}
             on_release:
                 app.root.current = "diet"
                 app.root.transition = SlideTransition(direction='up')
@@ -49,6 +55,13 @@ ScreenManagement:
             pos_hint: {"center_x": .5, "center_y": .1}
             on_release:
                 app.root.current = "life"
+                app.root.transition = SlideTransition(direction='up')
+        CustButton:
+            text: "S"
+            pos_hint: {"right": 1, "center_y": 0.05}
+            size_hint: .1, .1
+            on_release:
+                app.root.current = "settings"
                 app.root.transition = SlideTransition(direction='up')
 
 <DietPage>:
@@ -86,6 +99,8 @@ ScreenManagement:
         CustButton:
             text: "Burn Calories"
             pos_hint: {"center_x": .5, "center_y": .3}
+            on_release:
+                app.root.current = "phys"
         CustButton:
             text: "Back"
             size_hint: .3,.1
@@ -105,6 +120,8 @@ ScreenManagement:
             text: "General Information"
             font_size: 28
             pos_hint: {"center_x": .5, "center_y":.6}
+            on_release:
+                app.root.MedicineGuide()
         CustButton:
             text: "Back"
             size_hint: .3,.1
@@ -153,3 +170,26 @@ ScreenManagement:
         on_release:
             app.root.current = "home"
             app.root.transition = SlideTransition(direction='down')
+
+<SettingsPage>:
+    name: "settings"
+    CustButton:
+        text: "Temp Button"
+        pos_hint: {"center_x": .5, "center_y":.3}
+        pos_hint: {"x": 0,"y": 0}
+    CustButton:
+        text: "Back"
+        size_hint: .3,.1
+        pos_hint: {"x": 0,"y": 0}
+        on_release:
+            app.root.current = "home"
+            app.root.transition = SlideTransition(direction='down')
+
+<PhysicalActivities>:
+    name: "phys"
+    CustButton:
+        #font_size: 20
+        text: "General Exercise \n      Information"
+        pos_hint: {"center_x": .5, "center_y": .3}
+        on_release:
+            app.root.PhysicalActivity()

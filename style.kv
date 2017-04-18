@@ -29,6 +29,9 @@ ScreenManagement:
     background_color: .502, .651, .671, 1
     size_hint: .6, .15
 
+<CustTextInput@TextInput>
+    background_color: 1, 1, 1, 1
+
 <HomePage>:
     name: "home"
     FloatLayout:
@@ -185,6 +188,11 @@ ScreenManagement:
     CustLabel:
         text: "Add Daily Medications"
         pos_hint: {"center_x": .5, "center_y":.9}
+    CustTextInput:
+        text: "Add Daily Medications"
+        pos_hint: {"center_x": .5, "center_y":.825}
+        font_size: 25
+        size_hint: .6, .07
     CustButton:
         id: add_button
         text: "+"
@@ -193,7 +201,6 @@ ScreenManagement:
         on_release:
             self.pos_hint = {"center_x": .1, "center_y": app.root.yPos}
             app.root.yPos -= 0.1
-
     CustButton:
         text: "Back"
         size_hint: .3,.1
@@ -201,6 +208,7 @@ ScreenManagement:
         on_release:
             app.root.current = "home"
             app.root.transition = SlideTransition(direction='down')
+
 
 <PhysicalActivities>:
     name: "phys"

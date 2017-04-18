@@ -191,8 +191,8 @@ ScreenManagement:
         size_hint: .1,.065
         pos_hint: {"center_x": .1, "center_y": 0.825}
         on_release:
-            app.root.yPos -= 0.10
             self.pos_hint = {"center_x": .1, "center_y": app.root.yPos}
+            app.root.yPos -= 0.1
 
     CustButton:
         text: "Back"

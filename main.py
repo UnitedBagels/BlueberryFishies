@@ -22,7 +22,6 @@ class ExercisePage(Screen):
 class MedicationPage(Screen):
     pass
 
-
 class GoalsPage(Screen):
     pass
 
@@ -36,17 +35,33 @@ class PhysicalActivities(Screen):
     pass
 
 class ScreenManagement(ScreenManager):
+
+    # addMedication
+    instances = 0
     yPos = 0.825
+
     def SodiumDietBrowser(self):
         webbrowser.open_new("http://allrecipes.com/recipes/1788/healthy-recipes/low-sodium/")
+
     def FatDietBrowser(self):
         webbrowser.open_new("http://allrecipes.com/recipes/1231/healthy-recipes/low-fat/")
+
     def DiabeticBrowser(self):
         webbrowser.open_new("http://allrecipes.com/recipes/739/healthy-recipes/diabetic/")
-    def notify():
+
+    def notify(self):
         pass
+
     def MedicineGuide(self):
         webbrowser.open_new("https://www.fda.gov/Drugs/DrugSafety/ucm085729.htm")
+
+    #def addMedication(self):
+        #self.yPos -= 0.1
+        #self.instances += 1
+        #print(self.addButton.ids.add_button.state)
+        #addButton.pos_hint = {"center_x": .1, "center_y": self.yPos}
+        #print(addButton.pos_hint)"""
+
     def PhysicalActivity(self):
         webbrowser.open_new("https://www.niddk.nih.gov/health-information/health-topics/weight-control/young-heart-tips-Older-adults/Pages/young-heart-tips-older-adults.aspx#physical_activity")
 

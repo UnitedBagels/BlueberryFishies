@@ -38,7 +38,7 @@ class ScreenManagement(ScreenManager):
 
     # addMedication
     instances = 0
-    yPos = 0.825
+    yPos = 0.74
 
     def SodiumDietBrowser(self):
         webbrowser.open_new("http://allrecipes.com/recipes/1788/healthy-recipes/low-sodium/")

@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
+from kivy.uix.togglebutton import ToggleButton
 from kivy.config import Config
 from kivy.core.window import Window
 import webbrowser
@@ -8,6 +9,9 @@ import webbrowser
 Config.set('graphics', 'height', '800')"""
 Window.size = (480, 800)
 #dan@finisventures.com
+
+class CheckBox(ToggleButton):
+    pass
 
 class HomePage(Screen):
     Window.clearcolor = (1, 1, 1, 1)

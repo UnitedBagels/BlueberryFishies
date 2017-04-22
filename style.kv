@@ -29,11 +29,14 @@ ScreenManagement:
     background_color: .502, .651, .671, 1
     size_hint: .6, .15
 
-<CustTextInput@TextInput>
+<CustTextInput@TextInput>:
     background_color: 1, 1, 1, 1
 
 <CustSpinner@Spinner>:
     background_color: 1, 1, 1, 1
+
+<CustCheckBox@CheckBox>:
+    allow_no_selection: False
 
 <HomePage>:
     name: "home"
@@ -188,6 +191,7 @@ ScreenManagement:
 
 <SettingsPage>:
     name: "settings"
+    background_color: 0,0,0,1
     CustLabel:
         text: "Add Daily Medications"
         pos_hint: {"center_x": .5, "center_y":.9}
@@ -212,18 +216,50 @@ ScreenManagement:
             app.root.current = "home"
             app.root.transition = SlideTransition(direction='down')
     CustSpinner:
-        pos_hint: {"center_x": .8, "center_y": 0.825}
+        pos_hint: {"center_x": .785, "center_y": 0.825}
         size_hint: .15,.05
         text: "Time"
         background_color: .502, .651, .671, 1
         values: ('1:00', '2:00', '3:00', '4:00','5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00')
+        font_name:'images/cambriab'
+    CustCheckBox:
+        size_hint: 0.05, 0.03
+        pos_hint: {"center_x": .895, "center_y": 0.825}
+        group: 'ampm'
+        allow_no_selection: False
+        canvas.before:
+            Color:
+                rgb: .2, .2, .2
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    CustCheckBox:
+        size_hint: 0.05, 0.03
+        pos_hint: {"center_x": .96, "center_y": 0.825}
+        group: 'ampm'
+        allow_no_selection: False
+        canvas.before:
+            Color:
+                rgb: .2, .2, .2
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    CustLabel:
+        pos_hint: {"center_x": .895, "center_y": 0.85}
+        font_size: 16
+        text: "AM"
+    CustLabel:
+        pos_hint: {"center_x": .96, "center_y": 0.85}
+        font_size: 16
+        text: "PM"
+
 
 
 <PhysicalActivities>:
     name: "phys"
     CustButton:
         #font_size: 20
-        text: "General Exercise \n      Information"
+        text: "General Exercise \nInformation"
         pos_hint: {"center_x": .5, "center_y": .3}
         on_release:
             app.root.PhysicalActivity()

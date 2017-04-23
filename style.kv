@@ -1,6 +1,6 @@
 #: import SlideTransition kivy.uix.screenmanager.SlideTransition
 ##
-ScreenManagement:
+ScreenManager:
     transition: SlideTransition(direction='down')
     HomePage:
     DietPage:
@@ -31,6 +31,7 @@ ScreenManagement:
 
 <CustTextInput@TextInput>:
     background_color: 1, 1, 1, 1
+    font_name: 'images/cambriab'
 
 <CustSpinner@Spinner>:
     background_color: 1, 1, 1, 1
@@ -89,17 +90,17 @@ ScreenManagement:
             text: "Low Sodium"
             pos_hint: {"center_x": .5, "center_y": .7}
             on_release:
-                app.root.SodiumDietBrowser()
+                root.SodiumDietBrowser()
         CustButton:
             text: "Low Fat"
             pos_hint: {"center_x": .5, "center_y": .5}
             on_release:
-                app.root.FatDietBrowser()
+                root.FatDietBrowser()
         CustButton:
             text: "Diabetic"
             pos_hint: {"center_x": .5, "center_y": .3}
             on_release:
-                app.root.DiabeticBrowser()
+                root.DiabeticBrowser()
         CustButton:
             text: "Back"
             size_hint: .3,.1
@@ -139,7 +140,7 @@ ScreenManagement:
             font_size: 28
             pos_hint: {"center_x": .5, "center_y":.6}
             on_release:
-                app.root.MedicineGuide()
+                root.MedicineGuide()
         CustButton:
             text: "Back"
             size_hint: .3,.1
@@ -191,23 +192,24 @@ ScreenManagement:
 
 <SettingsPage>:
     name: "settings"
-    background_color: 0,0,0,1
+    background_color: 0,0,0,
     CustLabel:
         text: "Add Daily Medications"
         pos_hint: {"center_x": .5, "center_y":.9}
     CustTextInput:
-        text: "Add Daily Medications"
+        hint_text: 'Enter Description'
         pos_hint: {"center_x": .385, "center_y":.825}
         font_size: 25
-        size_hint: .6, .07
+        size_hint: .6, .055
+        multiline: False
     CustButton:
         id: add_button
         text: "+"
         size_hint: .1,.065
         pos_hint: {"center_x": .13, "center_y": 0.74}
         on_release:
-            app.root.yPos -= 0.1
-            self.pos_hint = {"center_x": .13, "center_y": app.root.yPos}
+            root.yPos -= 0.1
+            root.addMedication()
     CustButton:
         text: "Back"
         size_hint: .3,.1
@@ -262,4 +264,4 @@ ScreenManagement:
         text: "General Exercise \nInformation"
         pos_hint: {"center_x": .5, "center_y": .3}
         on_release:
-            app.root.PhysicalActivity()
+            root.PhysicalActivity()

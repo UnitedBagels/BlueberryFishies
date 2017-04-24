@@ -6,14 +6,13 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.spinner import Spinner
 from kivy.config import Config
 from kivy.core.window import Window
+from kivy.uix.checkbox import CheckBox
 import webbrowser
 """Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '800')"""
 Window.size = (480, 800)
 #dan@finisventures.com
 
-class CheckBox(ToggleButton):
-    pass
 
 class HomePage(Screen):
     Window.clearcolor = (1, 1, 1, 1)
@@ -45,9 +44,10 @@ class LifePage(Screen):
 class SettingsPage(Screen):
 
     yPos = 0.74
+    instances = 1
 
-    def addMedication(self):
-        self.add_widget(TextInput(
+    def addMedication(self): # This children thing looks ridiculous but thats how I figured it out
+        self.children[2].children[0].add_widget(TextInput(
             background_color = (1, 1, 1, 1), # These two properties already exist in
             font_name = 'images/cambriab',   # CustTextInput, not sure how to get them back
             hint_text = "Enter Description",
@@ -55,13 +55,20 @@ class SettingsPage(Screen):
             font_size = 25,
             size_hint = (.6, .055),
             multiline = False))
-        self.add_widget(Spinner(
+        self.children[2].children[0].add_widget(Spinner(
             pos_hint = {"center_x": .785, "center_y": self.yPos},
             size_hint = (.15, .05),
             text = "Time",
             background_color = (.502, .651, .671, 1),
             values = ('1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00'),
             font_name = 'images/cambriab'))
+        self.children[2].children[0].add_widget(CheckBox(
+            group = 'ampm' + str(self.instances),
+            size_hint = (0.05, 0.03)))
+        self.children[2].children[0].add_widget(CheckBox(
+            group = 'ampm' + str(self.instances),
+            size_hint = (0.05, 0.03)))
+        self.instances += 1
         print("helloi")
 
 class PhysicalActivities(Screen):

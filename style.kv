@@ -202,32 +202,30 @@ ScreenManager:
         text: "Add Daily Medications"
         pos_hint: {"center_x": .5, "center_y":.9}
     ScrollView:
-        size_hint: None, None
-        pos_hint: {"center_x": .5, "center_y":.8}
+        size_hint: .9, .7
+        pos_hint: {"center_x": .5, "center_y": .5}
         do_scroll_x: False
         width: 480
-        GridLayout:
-            cols: 4
-            padding: 10
-            spacing: 10
+        FloatLayout:
             size_hint: None, None
             width: 480
+            height: 2000
             CustTextInput:
                 hint_text: 'Enter Description'
-                pos_hint: {"center_x": .385, "center_y":.825}
+                pos_hint: {"center_x": .3, "center_y":.98}
                 font_size: 25
-                size_hint: .6, .055
+                size_hint: .6, .025
                 multiline: False
             CustSpinner:
-                pos_hint: {"center_x": .785, "center_y": 0.825}
-                size_hint: .15,.05
+                pos_hint: {"center_x": .7, "center_y": 0.98}
+                size_hint: .15,.025
                 text: "Time"
                 background_color: .502, .651, .671, 1
                 values: ('1:00', '2:00', '3:00', '4:00','5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00')
                 font_name:'images/cambriab'
             CustCheckBox:
-                size_hint: 0.05, 0.03
-                pos_hint: {"center_x": .895, "center_y": 0.825}
+                size_hint: 0.05, 0.015
+                pos_hint: {"center_x": .815, "center_y": 0.98}
                 group: 'ampm'
                 allow_no_selection: False
                 canvas.before:
@@ -237,8 +235,8 @@ ScreenManager:
                         pos: self.pos
                         size: self.size
             CustCheckBox:
-                size_hint: 0.05, 0.03
-                pos_hint: {"center_x": .96, "center_y": 0.825}
+                size_hint: 0.05, 0.015
+                pos_hint: {"center_x": .87, "center_y": 0.98}
                 group: 'ampm'
                 allow_no_selection: False
                 canvas.before:
@@ -259,9 +257,9 @@ ScreenManager:
         id: add_button
         text: "+"
         size_hint: .1,.065
-        pos_hint: {"center_x": .13, "center_y": 0.74}
+        pos_hint: {"center_x": .9, "center_y": 0.05}
         on_release:
-            root.yPos -= 0.1
+            #root.yPos -= 0.1
             root.addMedication()
     CustButton:
         text: "Back"

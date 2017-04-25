@@ -38,9 +38,19 @@ class MedicationPage(Screen):
 class GoalsPage(Screen):
     pass
 
+class StepTrack(Screen):
+    pass
+
 class LifePage(Screen):
     pass
 
+class ExerciseClasses(Screen):
+    def tennisClass(self):
+        webbrowser.open_new("https://www.google.com/search?q=tennis+classes+for+seniors+near+me&rlz=1C1CHBF_enUS697US697&oq=tennis+classes+for+seniors+near+me&aqs=chrome..69i57.4491j0j9&sourceid=chrome&ie=UTF-8")
+    def waterAerobics(self):
+        webbrowser.open_new("https://www.google.com/search?q=water+aerobics+for+seniors+near+me&rlz=1C1CHBF_enUS697US697&oq=water+aer&aqs=chrome.0.69i59j0j69i57j0l3.2565j0j9&sourceid=chrome&ie=UTF-8")
+    def swimmingPools(self):
+        webbrowser.open_new("https://www.google.com/search?q=swimming+pools+near+me+seniors&rlz=1C1CHBF_enUS697US697&oq=swimming+pools+near+me+seniors&aqs=chrome..69i57.5952j0j9&sourceid=chrome&ie=UTF-8#safe=strict&q=swimming+pools+near+me+")
 class SettingsPage(Screen):
 
     yPos = 0.93
@@ -79,6 +89,7 @@ class PhysicalActivities(Screen):
         webbrowser.open_new("https://www.niddk.nih.gov/health-information/health-topics/weight-control/young-heart-tips-Older-adults/Pages/young-heart-tips-older-adults.aspx#physical_activity")
 
 class ScreenManager():
+
 
     def notify(self):
         pass

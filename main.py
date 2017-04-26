@@ -79,7 +79,7 @@ class StepTrack(Screen):
 
             if newT != 0:
                 self.writeTime(newT)
-
+#$
 
     def resetTime(self):
         self.writeTime(0)

@@ -324,9 +324,60 @@ ScreenManager:
         text: "In order to maintain good health,\n you should walk at least 15 minutes each \nday to prevent cardiovascular disease."
         halign: 'center'
         pos_hint: {"center_x": .5, "center_y": .8}
+
+    CustLabel:
+        id: totalT
+        font_size: 24
+        text: "You have walked " + str(root.grabTime()) +  " minutes today!"
+        pos_hint: {"center_x": .5, "center_y": .6}
+
     CustTextInput:
+        id: stepz
         hint_text: 'Enter time walked today (min)'
-        pos_hint: {"center_x": .5, "center_y":.3}
+        pos_hint: {"center_x": .45, "center_y":.3}
         font_size: 25
         size_hint: .75, .055
         multiline: False
+        on_text_validate:
+            root.dailyWalkTime(stepz.text)
+            temp.text = stepz.text
+            totalT.text = "You have walked " + str(root.grabTime()) + " minutes today!"
+            stepz.text = ""
+    CustButton:
+        id: ding
+        text: "Reset Total Time"
+        on_release:
+            root.resetTime()
+            totalT.text = "You have walked " + str(root.grabTime()) + " minutes today!"
+    CustButton:
+        id: temp
+        x: 10000
+        text: ""
+    CustButton:
+        id: work
+        pos_hint: {"center_x": .88, "center_y": .3}
+        size_hint: .1,.1
+        #text: root.grabTime()
+
+        on_release:
+            root.dailyWalkTime(stepz.text)
+            totalT.text = "You have walked " + str(root.grabTime()) + " minutes today!"
+            temp.text = stepz.text
+            stepz.text = ""
+        Image:
+            pos: self.parent.pos
+            size: self.parent.size
+            source: 'check_mark_T.png'
+
+
+
+    CustButton:
+        text: "Undo"
+        size_hint: .2,.15
+        pos_hint: {"x": .8, "y": 0}
+        on_release:
+            root.undoTime(temp.text)
+            totalT.text = "You have walked " + str(root.grabTime()) + " minutes today!"
+
+
+

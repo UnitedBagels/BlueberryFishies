@@ -8,6 +8,7 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.uix.checkbox import CheckBox
 import webbrowser
+import pickle
 """Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '800')"""
 Window.size = (480, 800)
@@ -39,7 +40,49 @@ class GoalsPage(Screen):
     pass
 
 class StepTrack(Screen):
-    pass
+    def grabTime(self):
+
+        file_Name = "testfile.dat"
+        fileObject = open(file_Name,'r')
+        c = pickle.load(fileObject)
+        fileObject.close()
+        return c
+
+    def writeTime(self, b):
+        if b != "":
+            file_Name = "testfile.dat"
+            fileObject = open(file_Name,'wb')
+            c = pickle.dump(b, fileObject)
+            fileObject.close()
+    def dailyWalkTime(self, b):
+        if b != "":
+            file_Name = "testfile.dat"
+            currentTime = self.grabTime()
+            print currentTime
+            try:
+                currentTime = int(currentTime) + int(b)
+            except ValueError:
+                print "why tho"
+
+            print currentTime
+            self.writeTime(currentTime)
+
+    def undoTime(self, b):
+            file_Name = "testfile.dat"
+            c = self.grabTime()
+            print "c=" + str(c)
+            newT = 0
+            try:
+                newT = int(c) - int(b)
+            except ValueError:
+                print "hhhh"
+
+            if newT != 0:
+                self.writeTime(newT)
+
+
+    def resetTime(self):
+        self.writeTime(0)
 
 class LifePage(Screen):
     pass

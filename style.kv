@@ -14,7 +14,7 @@ ScreenManager:
     StepTrack:
 
 <CustButton@Button>:
-    font_size: 32
+    font_size: sp(32)
     font_name: 'images/cambriab'
     color: 0, 0, 0, 1
     background_normal: ''
@@ -23,7 +23,7 @@ ScreenManager:
     size_hint: .6, .15
 
 <CustLabel@Label>:
-    font_size: 32
+    font_size: sp(32)
     font_name: 'images/cambriab'
     color: 0, 0, 0, 1
     background_normal: ''
@@ -47,12 +47,13 @@ ScreenManager:
         CustButton:
             text: "Diet"
             pos_hint: {"center_x": .5, "center_y": .9}
-            #Image:
-            #    source: 'bagel.png'
-            #    pos_hint: {"y": 200, "x": 200}
             on_release:
                 app.root.current = "diet"
                 app.root.transition = SlideTransition(direction='up')
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/apple.png'
         CustButton:
             text: "Exercise"
             pos_hint: {"center_x": .5, "center_y": .7}
@@ -61,29 +62,42 @@ ScreenManager:
                 app.root.transition = SlideTransition(direction='up')
         CustButton:
             text: "Medication"
+            #text_size: cm(6), cm(0)
             pos_hint: {"center_x": .5, "center_y": .5}
             on_release:
                 app.root.current = "meds"
                 app.root.transition = SlideTransition(direction='up')
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/medication.png'
         CustButton:
             text: "Health Goals"
             pos_hint: {"center_x": .5, "center_y": .3}
             on_release:
                 app.root.current = "goals"
                 app.root.transition = SlideTransition(direction='up')
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/checkmark.png'
         CustButton:
             text: "Lifestyle"
             pos_hint: {"center_x": .5, "center_y": .1}
             on_release:
                 app.root.current = "life"
                 app.root.transition = SlideTransition(direction='up')
-        CustButton:
-            text: "S"
-            pos_hint: {"right": 1, "center_y": 0.05}
-            size_hint: .1, .1
-            on_release:
-                app.root.current = "settings"
-                app.root.transition = SlideTransition(direction='up')
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/lotus.png'
+        #CustButton:
+        #    text: "S"
+        #    pos_hint: {"right": 1, "center_y": 0.05}
+        #    size_hint: .1, .1
+        #    on_release:
+        #        app.root.current = "settings"
+        #        app.root.transition = SlideTransition(direction='up')
 
 <DietPage>:
     name: "diet"
@@ -140,6 +154,8 @@ ScreenManager:
             text: "Set Reminders"
             font_size: 28
             pos_hint: {"center_x": .5, "center_y":.3}
+            on_release:
+                app.root.current = "reminders"
         CustButton:
             text: "General Information"
             font_size: 28
@@ -196,8 +212,8 @@ ScreenManager:
             app.root.transition = SlideTransition(direction='down')
 
 <SettingsPage>:
-    name: "settings"
-    background_color: 0,0,0,
+    name: "reminders"
+    #background_color: 0,0,0,
     CustLabel:
         text: "Add Daily Medications"
         pos_hint: {"center_x": .5, "center_y":.9}
@@ -210,41 +226,6 @@ ScreenManager:
             size_hint: None, None
             width: 480
             height: 2000
-            CustTextInput:
-                hint_text: 'Enter Description'
-                pos_hint: {"center_x": .3, "center_y":.98}
-                font_size: 25
-                size_hint: .6, .025
-                multiline: False
-            CustSpinner:
-                pos_hint: {"center_x": .7, "center_y": 0.98}
-                size_hint: .15,.025
-                text: "Time"
-                background_color: .502, .651, .671, 1
-                values: ('1:00', '2:00', '3:00', '4:00','5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00')
-                font_name:'images/cambriab'
-            CustCheckBox:
-                size_hint: 0.05, 0.015
-                pos_hint: {"center_x": .815, "center_y": 0.98}
-                group: 'ampm'
-                allow_no_selection: False
-                canvas.before:
-                    Color:
-                        rgb: .2, .2, .2
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            CustCheckBox:
-                size_hint: 0.05, 0.015
-                pos_hint: {"center_x": .87, "center_y": 0.98}
-                group: 'ampm'
-                allow_no_selection: False
-                canvas.before:
-                    Color:
-                        rgb: .2, .2, .2
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
             #CustLabel:
             #   pos_hint: {"center_x": .895, "center_y": 0.85}
             #    font_size: 16
@@ -259,8 +240,8 @@ ScreenManager:
         size_hint: .1,.065
         pos_hint: {"center_x": .9, "center_y": 0.05}
         on_release:
-            #root.yPos -= 0.1
-            root.addMedication()
+            root.addMedications()
+
     CustButton:
         text: "Back"
         size_hint: .3,.1
@@ -268,8 +249,7 @@ ScreenManager:
         on_release:
             app.root.current = "home"
             app.root.transition = SlideTransition(direction='down')
-
-
+            root.saveMedications()
 
 <PhysicalActivities>:
     name: "phys"
@@ -329,12 +309,12 @@ ScreenManager:
         id: totalT
         font_size: 24
         text: "You have walked " + str(root.grabTime()) +  " minutes today!"
-        pos_hint: {"center_x": .5, "center_y": .6}
+        pos_hint: {"center_x": .5, "center_y": .65}
 
     CustTextInput:
         id: stepz
         hint_text: 'Enter time walked today (min)'
-        pos_hint: {"center_x": .45, "center_y":.3}
+        pos_hint: {"center_x": .45, "center_y":.55}
         font_size: 25
         size_hint: .75, .055
         multiline: False
@@ -343,22 +323,26 @@ ScreenManager:
             temp.text = stepz.text
             totalT.text = "You have walked " + str(root.grabTime()) + " minutes today!"
             stepz.text = ""
+
     CustButton:
         id: ding
-        text: "Reset Total Time"
+        text: "Reset"
+        pos_hint: {"center_x": 0.7, "center_y": 0.4}
+        size_hint: .3, .1
         on_release:
             root.resetTime()
             totalT.text = "You have walked " + str(root.grabTime()) + " minutes today!"
+
     CustButton:
         id: temp
         x: 10000
         text: ""
+
     CustButton:
         id: work
-        pos_hint: {"center_x": .88, "center_y": .3}
-        size_hint: .1,.1
+        pos_hint: {"center_x": .90, "center_y": .55}
+        size_hint: .1,.0570
         #text: root.grabTime()
-
         on_release:
             root.dailyWalkTime(stepz.text)
             totalT.text = "You have walked " + str(root.grabTime()) + " minutes today!"
@@ -367,17 +351,23 @@ ScreenManager:
         Image:
             pos: self.parent.pos
             size: self.parent.size
-            source: 'check_mark_T.png'
-
-
+            source: 'images/check_mark_T.png'
 
     CustButton:
         text: "Undo"
-        size_hint: .2,.15
-        pos_hint: {"x": .8, "y": 0}
+        size_hint: .3,.1
+        pos_hint: {"center_x": 0.30, "center_y": 0.4}
         on_release:
             root.undoTime(temp.text)
             totalT.text = "You have walked " + str(root.grabTime()) + " minutes today!"
+
+    CustButton:
+        text: "Back"
+        size_hint: .3,.1
+        pos_hint: {"x": 0,"y": 0}
+        on_release:
+            app.root.current = "home"
+            app.root.transition = SlideTransition(direction='down')
 
 
 

@@ -12,6 +12,7 @@ ScreenManager:
     PhysicalActivities:
     ExerciseClasses:
     StepTrack:
+    CholesterolGoals:
 
 <CustButton@Button>:
     font_size: sp(32)
@@ -211,18 +212,21 @@ ScreenManager:
     CustButton:
         text: "Cholesterol Goals"
         font_size: 28
-        pos_hint: {"center_x": .5, "center_y":.5}
+        pos_hint: {"center_x": .5, "center_y":.6}
+        on_release:
+            app.root.current = "cholesterol"
+            app.root.transition = SlideTransition(direction='down')
+        Image:
+            pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+            size: 80,80
+            source: 'images/smile.png'
     CustButton:
-        text: "Cholesterol Goals"
-        font_size: 28
-        pos_hint: {"center_x": .5, "center_y":.7}
-        CustButton:
-            text: "Back"
-            size_hint: .3,.1
-            pos_hint: {"x": 0,"y": 0}
-            on_release:
-                app.root.current = "home"
-                app.root.transition = SlideTransition(direction='down')
+        text: "Back"
+        size_hint: .3,.1
+        pos_hint: {"x": 0,"y": 0}
+        on_release:
+            app.root.current = "home"
+            app.root.transition = SlideTransition(direction='down')
 
 <LifePage>:
     name: "life"
@@ -413,5 +417,42 @@ ScreenManager:
             app.root.current = "home"
             app.root.transition = SlideTransition(direction='down')
 
-
-
+<CholesterolGoals>
+    name: "cholesterol"
+    CustLabel:
+        font_size: 28
+        text: "In order to lower your cholesterol,\n you should do the following:"
+        halign: 'center'
+        pos_hint: {"center_x": .5, "center_y": .9}
+    CustLabel:
+        font_size: 24
+        pos_hint: {"center_x": .5, "center_y": .7}
+        text: "Believe it or not, some fats are healthier\n than others. Unsaturated fats should\n always take priority over saturated fats.\n Always stay away from trans fats."
+        CustLabel:
+    CustLabel:
+        font_size: 24
+        text: "Find time to exercise! Taking a walk\n every now and then or playing\n a sport can really go a long way. "
+        halign: 'center'
+        pos_hint: {"center_x": .5, "center_y": .5}
+    CustLabel:
+        font_size: 24
+        text: "One of the many benefits of quitting\n smoking is that it will lower your\n cholesterol. If you smoke and have high\n cholesterol, quitting should be\n your priority."
+        halign: 'center'
+        pos_hint: {"center_x": .5, "center_y": .3}
+    CustButton:
+        text: "More Info"
+        size_hint: .32,.1
+        pos_hint: {"center_x": 0.5, "center_y": 0.1}
+        on_release:
+            root.CholesterolBrowser()
+        Image:
+            pos: self.parent.pos[0] + sp(140), self.parent.pos[1] + sp(40)
+            size: 80,80
+            source: 'images/info.png'
+    CustButton:
+        text: "Back"
+        size_hint: .3,.1
+        pos_hint: {"x": 0,"y": 0}
+        on_release:
+            app.root.current = "home"
+            app.root.transition = SlideTransition(direction='down')

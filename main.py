@@ -59,6 +59,10 @@ class DietPage(Screen):
 class ExercisePage(Screen):
     pass
 
+class CholesterolGoals(Screen):
+    def CholesterolBrowser(self):
+        webbrowser.open_new("http://www.mayoclinic.org/diseases-conditions/high-blood-cholesterol/in-depth/reduce-cholesterol/art-20045935")
+
 class MedicationPage(Screen):
     def MedicineGuide(self):
         webbrowser.open_new("https://www.fda.gov/Drugs/DrugSafety/ucm085729.htm")
@@ -223,6 +227,7 @@ class SettingsPage(Screen):
 class PhysicalActivities(Screen):
     def PhysicalActivity(self):
         webbrowser.open_new("https://www.niddk.nih.gov/health-information/health-topics/weight-control/young-heart-tips-Older-adults/Pages/young-heart-tips-older-adults.aspx#physical_activity")
+
 
 class ScreenManager():
 

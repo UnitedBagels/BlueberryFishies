@@ -51,7 +51,7 @@ ScreenManager:
                 app.root.current = "diet"
                 app.root.transition = SlideTransition(direction='up')
             Image:
-                pos: sp(self.parent.pos[0]) + sp(250), sp(self.parent.pos[1]) + sp(60)
+                pos: self.parent.pos[0] + sp(250), self.parent.pos[1] + sp(60)
                 size: 80,80
                 source: 'images/apple.png'
         CustButton:

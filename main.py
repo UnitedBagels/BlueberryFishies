@@ -25,7 +25,7 @@ Window.size = (480, 800)
 
 #print(datetime.datetime.now())
 
-n.notify(title="test", message = 'testing', ticker = 'r')
+n.notify(title="Heartwise", message = 'Time for your medicine!', ticker = 'r')
 medData = {}
 lazy = 1
 
@@ -40,6 +40,10 @@ class CCheckBox(CheckBox):
         with self.canvas.before:
             Color(rgba = (.2, .2, .2, 1))
             Rectangle(pos=self.pos, size=self.size)
+
+class WeightLoss(Screen):
+    def FatDietBrowser(self):
+        webbrowser.open_new("http://allrecipes.com/recipes/1231/healthy-recipes/low-fat/")
 
 class HomePage(Screen):
     #Window.clearcolor = (1, 1, 1, 1)
@@ -117,7 +121,23 @@ class StepTrack(Screen):
         self.writeTime(0)
 
 class LifePage(Screen):
-    pass
+    def stopSmoking(self):
+        webbrowser.open_new(
+            "https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/?gclid=Cj0KEQjwldzHBRCfg_aImKrf7N4BEiQABJTPKPdViRSroGPZavPsonYGkrKWQos_2X4s7l02m_xinE0aAivk8P8HAQ")
+
+class BMIGoals(Screen):
+    def bmiCalculator(self,heightF,heightI,weight):
+        weight = float(weight)
+        heightF = float(heightF)
+        heightI = float(heightI)
+        print(heightF, heightI, weight)
+        height = float((12*heightF)+heightI)
+        height *= 0.0254
+        weight *= .454
+        bmi = weight / (height*height)
+        return str(bmi)
+
+
 
 class ExerciseClasses(Screen):
     def tennisClass(self):

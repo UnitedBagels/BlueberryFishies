@@ -16,7 +16,7 @@ import webbrowser, pickle, plyer
 from plyer import notification as n
 from kivy.clock import Clock
 import datetime
-
+#
 #kivy.require('1.9.0')
 """Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '800')"""

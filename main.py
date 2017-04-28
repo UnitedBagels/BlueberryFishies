@@ -42,6 +42,7 @@ class CCheckBox(CheckBox):
             Rectangle(pos=self.pos, size=self.size)
 
 class HomePage(Screen):
+    #Window.clearcolor = (1, 1, 1, 1)
     Window.clearcolor = (0.7647, 0.8353, 8588, 1)
     pass
 

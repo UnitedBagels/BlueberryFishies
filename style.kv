@@ -60,6 +60,10 @@ ScreenManager:
             on_release:
                 app.root.current = "exer"
                 app.root.transition = SlideTransition(direction='up')
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/exercize.png'
         CustButton:
             text: "Medication"
             #text_size: cm(6), cm(0)
@@ -107,16 +111,28 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y": .7}
             on_release:
                 root.SodiumDietBrowser()
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/low_sodium.png'
         CustButton:
             text: "Low Fat"
             pos_hint: {"center_x": .5, "center_y": .5}
             on_release:
                 root.FatDietBrowser()
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/fat.png'
         CustButton:
             text: "Diabetic"
             pos_hint: {"center_x": .5, "center_y": .3}
             on_release:
                 root.DiabeticBrowser()
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/diabetic.png'
         CustButton:
             text: "Back"
             size_hint: .3,.1
@@ -134,11 +150,19 @@ ScreenManager:
             on_release:
                 app.root.current = "step"
                 app.root.transition = SlideTransition(direction='up')
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/step.png'
         CustButton:
             text: "Burn Calories"
             pos_hint: {"center_x": .5, "center_y": .3}
             on_release:
                 app.root.current = "phys"
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/burn.png'
         CustButton:
             text: "Back"
             size_hint: .3,.1
@@ -156,12 +180,20 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y":.3}
             on_release:
                 app.root.current = "reminders"
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/remind.png'
         CustButton:
             text: "General Information"
             font_size: 28
             pos_hint: {"center_x": .5, "center_y":.6}
             on_release:
                 root.MedicineGuide()
+            Image:
+                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                size: 80,80
+                source: 'images/info.png'
         CustButton:
             text: "Back"
             size_hint: .3,.1
@@ -197,12 +229,24 @@ ScreenManager:
     CustButton:
         text: "Stress Management"
         pos_hint: {"center_x": .5, "center_y":.3}
+        Image:
+            pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+            size: 80,80
+            source: 'images/smile.png'
     CustButton:
         text: "Stop Smoking"
         pos_hint: {"center_x": .5, "center_y":.5}
+        Image:
+            pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+            size: 80,80
+            source: 'images/smoke.png'
     CustButton:
         text: "Weight Loss"
         pos_hint: {"center_x": .5, "center_y":.7}
+        Image:
+            pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+            size: 80,80
+            source: 'images/weight.png'
     CustButton:
         text: "Back"
         size_hint: .3,.1

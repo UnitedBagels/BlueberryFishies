@@ -1,3 +1,4 @@
+import kivy
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
@@ -15,6 +16,8 @@ import webbrowser, pickle, plyer
 from plyer import notification as n
 from kivy.clock import Clock
 import datetime
+
+#kivy.require('1.9.0')
 """Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '800')"""
 Window.size = (480, 800)
@@ -22,7 +25,7 @@ Window.size = (480, 800)
 
 #print(datetime.datetime.now())
 
-n.notify(title="test", message = 'm', ticker = 'r')
+n.notify(title="test", message = 'testing', ticker = 'r')
 medData = {}
 lazy = 1
 
@@ -135,7 +138,7 @@ class SettingsPage(Screen):
         self.children[2].children[0].add_widget(TextInput(
             id = "t" + str(self.instances),
             background_color = (1, 1, 1, 1), # These two properties already exist in
-            font_name = 'images/cambriab',   # CustTextInput, not sure how to get them back
+            font_name = 'images/cambriab.ttf',   # CustTextInput, not sure how to get them back
             hint_text = "Enter Description",
             pos_hint = {"center_x": .3, "center_y": self.yPos},
             font_size = 25,
@@ -148,7 +151,7 @@ class SettingsPage(Screen):
             text = "Time",
             background_color = (.502, .651, .671, 1),
             values = ('1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00'),
-            font_name = 'cambriab.ttf'))
+            font_name = 'images/cambriab.ttf'))
         self.children[2].children[0].add_widget(CCheckBox(
             id = "a" + str(self.instances),
             group = 'ampm' + str(self.instances),
@@ -192,11 +195,11 @@ class SettingsPage(Screen):
                 self.addMedications()
             for ide, valuee in medData.iteritems():
                 #print(ide, valuee)
-                for widget in self.walk():
-                    if widget.id == ide:
-                        widget.text = valuee
-                        print(widget.id, valuee)
-                        widget.active = self.str_to_bool(valuee)
+                for k in range(len(self.children[2].children[0].children)):
+                    if self.children[2].children[0].children[k].id == ide:
+                        self.children[2].children[0].children[k].text = valuee
+                        print(self.children[2].children[0].children[k].id, valuee)
+                        self.children[2].children[0].children[k].active = self.str_to_bool(valuee)
                         #if ide[0] == "a" or "p":
                         #    widget.active == valuee
                         #self.children[2].children[0].children[k].text = valuee

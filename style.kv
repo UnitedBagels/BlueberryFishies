@@ -15,7 +15,7 @@ ScreenManager:
 
 <CustButton@Button>:
     font_size: sp(32)
-    font_name: 'images/cambriab'
+    font_name: 'images/cambriab.ttf'
     color: 0, 0, 0, 1
     background_normal: ''
     background_down: 'button_background.png'
@@ -24,7 +24,7 @@ ScreenManager:
 
 <CustLabel@Label>:
     font_size: sp(32)
-    font_name: 'images/cambriab'
+    font_name: 'images/cambriab.ttf'
     color: 0, 0, 0, 1
     background_normal: ''
     background_down: 'button_background.png'
@@ -33,7 +33,7 @@ ScreenManager:
 
 <CustTextInput@TextInput>:
     background_color: 1, 1, 1, 1
-    font_name: 'images/cambriab'
+    font_name: 'images/cambriab.ttf'
 
 <CustSpinner@Spinner>:
     background_color: 1, 1, 1, 1
@@ -51,7 +51,7 @@ ScreenManager:
                 app.root.current = "diet"
                 app.root.transition = SlideTransition(direction='up')
             Image:
-                pos: self.parent.pos[0] + 250, self.parent.pos[1] + 60
+                pos: sp(self.parent.pos[0]) + sp(250), sp(self.parent.pos[1]) + sp(60)
                 size: 80,80
                 source: 'images/apple.png'
         CustButton:

@@ -12,14 +12,17 @@ from kivy.uix.checkbox import CheckBox
 from kivy.uix.widget import Widget
 from kivy.graphics import Color, Rectangle
 import webbrowser, pickle, plyer
-from plyer import notification
+from plyer import notification as n
 from kivy.clock import Clock
+import datetime
 """Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '800')"""
 Window.size = (480, 800)
 #dan@finisventures.com
 
-notification.notify('Testing plyer', 'Hi')
+#print(datetime.datetime.now())
+
+n.notify(title="test", message = 'm', ticker = 'r')
 medData = {}
 lazy = 1
 

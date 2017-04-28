@@ -59,7 +59,7 @@ class SettingsPage(Screen):
     def addMedication(self): # This children thing looks ridiculous but thats how I figured it out
         self.children[2].children[0].add_widget(TextInput(
             background_color = (1, 1, 1, 1), # These two properties already exist in
-            font_name = 'images/cambriab',   # CustTextInput, not sure how to get them back
+            font_name = 'cambriab.ttf',   # CustTextInput, not sure how to get them back
             hint_text = "Enter Description",
             pos_hint = {"center_x": .3, "center_y": self.yPos},
             font_size = 25,
@@ -71,6 +71,7 @@ class SettingsPage(Screen):
             text = "Time",
             background_color = (.502, .651, .671, 1),
             values = ('1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00'),
+            font_name = 'cambriab.ttf'))
             font_name = 'images/cambriab'))
         self.children[2].children[0].add_widget(CheckBox(
             group = 'ampm' + str(self.instances),
@@ -89,7 +90,6 @@ class PhysicalActivities(Screen):
         webbrowser.open_new("https://www.niddk.nih.gov/health-information/health-topics/weight-control/young-heart-tips-Older-adults/Pages/young-heart-tips-older-adults.aspx#physical_activity")
 
 class ScreenManager():
-
 
     def notify(self):
         pass

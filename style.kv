@@ -10,12 +10,10 @@ ScreenManager:
     LifePage:
     SettingsPage:
     PhysicalActivities:
-    ExerciseClasses:
-    StepTrack:
 
 <CustButton@Button>:
     font_size: 32
-    font_name: 'images/cambriab'
+    font_name: 'cambriab.ttf'
     color: 0, 0, 0, 1
     background_normal: ''
     background_down: 'button_background.png'
@@ -24,7 +22,7 @@ ScreenManager:
 
 <CustLabel@Label>:
     font_size: 32
-    font_name: 'images/cambriab'
+    font_name: 'cambriab.ttf'
     color: 0, 0, 0, 1
     background_normal: ''
     background_down: 'button_background.png'
@@ -33,7 +31,7 @@ ScreenManager:
 
 <CustTextInput@TextInput>:
     background_color: 1, 1, 1, 1
-    font_name: 'images/cambriab'
+    font_name: 'cambriab.ttf'
 
 <CustSpinner@Spinner>:
     background_color: 1, 1, 1, 1
@@ -117,9 +115,6 @@ ScreenManager:
         CustButton:
             text: "Step Tracker"
             pos_hint: {"center_x": .5, "center_y": .6}
-            on_release:
-                app.root.current = "step"
-                app.root.transition = SlideTransition(direction='up')
         CustButton:
             text: "Burn Calories"
             pos_hint: {"center_x": .5, "center_y": .3}
@@ -201,65 +196,19 @@ ScreenManager:
     CustLabel:
         text: "Add Daily Medications"
         pos_hint: {"center_x": .5, "center_y":.9}
-    ScrollView:
-        size_hint: .9, .7
-        pos_hint: {"center_x": .5, "center_y": .5}
-        do_scroll_x: False
-        width: 480
-        FloatLayout:
-            size_hint: None, None
-            width: 480
-            height: 2000
-            CustTextInput:
-                hint_text: 'Enter Description'
-                pos_hint: {"center_x": .3, "center_y":.98}
-                font_size: 25
-                size_hint: .6, .025
-                multiline: False
-            CustSpinner:
-                pos_hint: {"center_x": .7, "center_y": 0.98}
-                size_hint: .15,.025
-                text: "Time"
-                background_color: .502, .651, .671, 1
-                values: ('1:00', '2:00', '3:00', '4:00','5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00')
-                font_name:'images/cambriab'
-            CustCheckBox:
-                size_hint: 0.05, 0.015
-                pos_hint: {"center_x": .815, "center_y": 0.98}
-                group: 'ampm'
-                allow_no_selection: False
-                canvas.before:
-                    Color:
-                        rgb: .2, .2, .2
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            CustCheckBox:
-                size_hint: 0.05, 0.015
-                pos_hint: {"center_x": .87, "center_y": 0.98}
-                group: 'ampm'
-                allow_no_selection: False
-                canvas.before:
-                    Color:
-                        rgb: .2, .2, .2
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-            #CustLabel:
-            #   pos_hint: {"center_x": .895, "center_y": 0.85}
-            #    font_size: 16
-            #    text: "AM"
-            #CustLabel:
-            #    pos_hint: {"center_x": .96, "center_y": 0.85}
-            #    font_size: 16
-            #    text: "PM"
+    CustTextInput:
+        hint_text: 'Enter Description'
+        pos_hint: {"center_x": .385, "center_y":.825}
+        font_size: 25
+        size_hint: .6, .055
+        multiline: False
     CustButton:
         id: add_button
         text: "+"
         size_hint: .1,.065
-        pos_hint: {"center_x": .9, "center_y": 0.05}
+        pos_hint: {"center_x": .13, "center_y": 0.74}
         on_release:
-            #root.yPos -= 0.1
+            root.yPos -= 0.1
             root.addMedication()
     CustButton:
         text: "Back"
@@ -268,6 +217,43 @@ ScreenManager:
         on_release:
             app.root.current = "home"
             app.root.transition = SlideTransition(direction='down')
+    CustSpinner:
+        pos_hint: {"center_x": .785, "center_y": 0.825}
+        size_hint: .15,.05
+        text: "Time"
+        background_color: .502, .651, .671, 1
+        values: ('1:00', '2:00', '3:00', '4:00','5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00')
+        font_name:'cambriab.ttf'
+    CustCheckBox:
+        size_hint: 0.05, 0.03
+        pos_hint: {"center_x": .895, "center_y": 0.825}
+        group: 'ampm'
+        allow_no_selection: False
+        canvas.before:
+            Color:
+                rgb: .2, .2, .2
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    CustCheckBox:
+        size_hint: 0.05, 0.03
+        pos_hint: {"center_x": .96, "center_y": 0.825}
+        group: 'ampm'
+        allow_no_selection: False
+        canvas.before:
+            Color:
+                rgb: .2, .2, .2
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    CustLabel:
+        pos_hint: {"center_x": .895, "center_y": 0.85}
+        font_size: 16
+        text: "AM"
+    CustLabel:
+        pos_hint: {"center_x": .96, "center_y": 0.85}
+        font_size: 16
+        text: "PM"
 
 
 
@@ -279,54 +265,3 @@ ScreenManager:
         pos_hint: {"center_x": .5, "center_y": .3}
         on_release:
             root.PhysicalActivity()
-    CustButton:
-        text: "Exercise Near Me"
-        pos_hint: {"center_x": .5, "center_y": .6}
-        on_release:
-            app.root.current = "exerClasses"
-    CustButton:
-        text: "Back"
-        size_hint: .3,.1
-        pos_hint: {"x": 0,"y": 0}
-        on_release:
-            app.root.current = "home"
-            app.root.transition = SlideTransition(direction='down')
-
-<ExerciseClasses>:
-    name: "exerClasses"
-    CustButton:
-        text: "Water Aerobics"
-        pos_hint: {"center_x": .5, "center_y": .6}
-        on_release:
-            root.waterAerobics()
-    CustButton:
-        text: "Tennis"
-        pos_hint: {"center_x": .5, "center_y": .9}
-        on_release:
-            root.tennisClass()
-    CustButton:
-        text: "Swimming"
-        pos_hint: {"center_x": .5, "center_y": .3}
-        on_release:
-            root.swimmingPools()
-    CustButton:
-        text: "Back"
-        size_hint: .3,.1
-        pos_hint: {"x": 0,"y": 0}
-        on_release:
-            app.root.current = "phys"
-            app.root.transition = SlideTransition(direction='down')
-
-<StepTrack>:
-    name: "step"
-    CustLabel:
-        font_size: 24
-        text: "In order to maintain good health,\n you should walk at least 15 minutes each \nday to prevent cardiovascular disease."
-        halign: 'center'
-        pos_hint: {"center_x": .5, "center_y": .8}
-    CustTextInput:
-        hint_text: 'Enter time walked today (min)'
-        pos_hint: {"center_x": .5, "center_y":.3}
-        font_size: 25
-        size_hint: .75, .055
-        multiline: False
